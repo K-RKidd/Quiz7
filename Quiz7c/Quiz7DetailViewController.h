@@ -7,10 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Task.h"
 
-@interface Quiz7DetailViewController : UIViewController
+@interface Quiz7DetailViewController : UIViewController <UITextFieldDelegate>{
+    
+    __weak IBOutlet UISlider *slider;
+    __weak IBOutlet UILabel *sliderValue;
+    __weak IBOutlet UIDatePicker *datePicker;
+    __weak IBOutlet UITextField *nameField;
+}
+
+
 
 @property (strong, nonatomic) id detailItem;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+- (IBAction)sliderChange:(id)sender;
+
+@property (nonatomic, copy) void (^dismissBlock)(void);
+@property (nonatomic)Task *task;
+
 @end
